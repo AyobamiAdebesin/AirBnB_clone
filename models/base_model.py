@@ -12,9 +12,9 @@ class BaseModel:
     """
 
     def __init__(
-            """Initializes the attributes"""
             self, id=str(uuid.uuid4()), created_at=datetime.now(),
             updated_at=datetime.now()):
+        """Initialiazes the Base model atributes"""
 
         self.id = id
         self.created_at = created_at
