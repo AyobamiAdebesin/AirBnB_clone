@@ -64,4 +64,4 @@ The test for the classes are in the [test_models](./tests/test_models/) folder.
 
 ## Authors
 
-- [Akeh Emmanuel](https://github.com/akeh9ja) ~ [LinkedIn](https://www.linkedin.com/in/arthur-damm-96527042/) ~ [@arthurdamm]
+- [Akeh Emmanuel](https://github.com/akeh9ja)
