@@ -3,7 +3,11 @@
 import uuid
 import cmd
 from datetime import datetime
+<<<<<<< HEAD
 # import storage
+=======
+#import storage
+>>>>>>> 314d46f99f4c6b5064d18bcc28059ce32c3b0f9c
 
 class BaseModel:
     """
@@ -31,7 +35,7 @@ class BaseModel:
 
     def __str__(self):
         """A string representation of the Base Model"""
-        return '[{}] ({}) <{}>'.format(
+        return '[{}] ({}) {}'.format(
                 self.__class__.__name__,
                 self.id, self.__dict__)
 
@@ -41,7 +45,11 @@ class BaseModel:
         current datetime
         """
         self.updated_at = datetime.now()
+<<<<<<< HEAD
         #storage.save()
+=======
+        # storage.save()
+>>>>>>> 314d46f99f4c6b5064d18bcc28059ce32c3b0f9c
 
     def to_dict(self):
         """
