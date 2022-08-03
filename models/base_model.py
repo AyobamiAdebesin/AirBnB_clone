@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ A base model for all objects of the project"""
 import uuid
 import cmd
 from datetime import datetime
-#import storage
+from models import storage
 
 class BaseModel:
     """
@@ -28,6 +28,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
         """A string representation of the Base Model"""
@@ -41,7 +42,7 @@ class BaseModel:
         current datetime
         """
         self.updated_at = datetime.now()
-        # storage.save()
+        storage.save()
 
     def to_dict(self):
         """
