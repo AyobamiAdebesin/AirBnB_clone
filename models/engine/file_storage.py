@@ -46,8 +46,8 @@ class FileStorage:
             # attribute and use the value to create instances
             for key, value, in json_object.items():
                 self.new(BaseModel(**value))
-                #class_name = json_object[key]['__class__']
-                #object_dict = json_object[key]
-                #self.__objects[key] = self.new(BaseModel(**object_dict))
+                # class_name = json_object[key]['__class__']
+                # object_dict = json_object[key]
+                # self.__objects[key] = self.new(BaseModel(**object_dict))
         except FileNotFoundError:
             pass
