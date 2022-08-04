@@ -5,6 +5,7 @@ import cmd
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """
     A class that defines all common attributes/methods for
