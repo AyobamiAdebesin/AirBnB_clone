@@ -3,15 +3,7 @@
 import uuid
 import cmd
 from datetime import datetime
-<<<<<<< HEAD
 from models import storage
-=======
-<<<<<<< HEAD
-# import storage
-=======
-#import storage
->>>>>>> 314d46f99f4c6b5064d18bcc28059ce32c3b0f9c
->>>>>>> 9e8ca2e47f8e32841125eac908d5c405952932b1
 
 class BaseModel:
     """
