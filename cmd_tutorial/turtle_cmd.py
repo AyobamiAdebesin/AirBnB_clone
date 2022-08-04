@@ -35,6 +35,7 @@ class TurtleShell(cmd.Cmd):
         reset()
     def do_bye(self, arg):
         print('Thank you for using Turtle')
+        self.close()
         bye()
         return True
     
