@@ -46,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         elif arg not in HBNBCommand.class_dict:
-            print("** class doesn't exists**")
+            print("** class doesn't exist **")
         else:
             new_model = HBNBCommand.class_dict[arg]()
             storage.new(new_model)
@@ -118,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
                     instance_list_arg.append(str(value))
             print(instance_list_arg)
         elif arg not in HBNBCommand.class_dict:
-            print("** class doesn't exist**")
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         '''
@@ -150,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
                 except (IndexError):
                     print("** instance id missing **")
         except (IndexError):
-            print("** class name is missing **")
+            print("** class name missing **")
 
 
 if __name__ == "__main__":
