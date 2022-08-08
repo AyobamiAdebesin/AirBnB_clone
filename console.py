@@ -14,7 +14,6 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    intro = 'Welcome to HBNB Console      Type "help" or ? to list commands.\n'
     prompt = '(hbnb) '
     class_dict = {
             "BaseModel": BaseModel, "User": User,
