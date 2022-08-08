@@ -8,7 +8,7 @@ class FileStorage:
     A class representing a File Storage System
 
     """
-    __file_path = 'file.json'
+    __file_path = ''
     __objects = {}
 
     def all(self):
@@ -59,8 +59,5 @@ class FileStorage:
                 if class_name in class_dict:
                     model_name = class_dict.get(class_name)
                     self.new(model_name(**value))
-                # class_name = json_object[key]['__class__']
-                # object_dict = json_object[key]
-                # self.__objects[key] = self.new(BaseModel(**object_dict))
         except FileNotFoundError:
             pass
