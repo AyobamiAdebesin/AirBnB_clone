@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
             "BaseModel": BaseModel, "User": User,
             "Amenity": Amenity, "Place": Place,
             "City": City, "State": State, "Review": Review}
-    class_list = [
+    classes = [
             "BaseModel",
             "User",
             "Place",
