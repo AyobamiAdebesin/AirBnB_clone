@@ -4,14 +4,22 @@ import cmd
 
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.review import Review
+from models.amenity import Amenity
+from models.place import Place
 from models.engine.file_storage import FileStorage
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    intro = 'Welcome to HBNB Console            Type "help" or ? to list commands.\n'
+    intro = 'Welcome to HBNB Console      Type "help" or ? to list commands.\n'
     prompt = '(hbnb) '
-    class_dict = {"BaseModel": BaseModel, "User": User}
+    class_dict = {
+            "BaseModel": BaseModel, "User": User,
+            "Amenity": Amenity, "Place": Place,
+            "City": City, "State": State, "Review": Review}
 
     def do_quit(self, arg):
         '''
@@ -112,7 +120,6 @@ class HBNBCommand(cmd.Cmd):
                 if getattr(value, '__class__') == class_name:
                     instance_list_arg.append(str(value))
             print(instance_list_arg)
-            
         elif arg not in HBNBCommand.class_dict:
             print("** class doesn't exist**")
 
