@@ -40,7 +40,15 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         from models.base_model import BaseModel
         from models.user import User
-        class_dict = {"BaseModel": BaseModel, "User": User}
+        from models.amenity import Amenity
+        from models.state import State
+        from models.review import Review
+        from models.place import Place
+        from models.city import City
+        class_dict = {
+                "BaseModel": BaseModel, "User": User,
+                "Amenity": Amenity, "State": State, "Review": Review,
+                "Place": Place, "City": City}
         try:
             with open(FileStorage.__file_path, 'r', encoding="utf-8") as f:
                 json_object = json.load(f)
