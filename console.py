@@ -19,14 +19,14 @@ class HBNBCommand(cmd.Cmd):
             "BaseModel": BaseModel, "User": User,
             "Amenity": Amenity, "Place": Place,
             "City": City, "State": State, "Review": Review}
-    
-    class_list = ["BaseModel",
-               "User",
-               "Place",
-               "State",
-               "City",
-               "Amenity",
-               "Review"]
+    class_list = [
+            "BaseModel",
+            "User",
+            "Place",
+            "State",
+            "City",
+            "Amenity",
+            "Review"]
 
     def do_quit(self, arg):
         '''
@@ -159,7 +159,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** instance id missing **")
         except (IndexError):
             print("** class name missing **")
-    
+
     def default(self, line: str) -> None:
         commands = ["show",
                     "all()",
