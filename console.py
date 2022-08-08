@@ -155,5 +155,6 @@ class HBNBCommand(cmd.Cmd):
         except (IndexError):
             print("** class name is missing **")
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
