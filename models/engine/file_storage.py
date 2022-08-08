@@ -13,7 +13,7 @@ class FileStorage:
 
     def all(self):
         """Returns the dictionary __objects"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """
@@ -21,7 +21,7 @@ class FileStorage:
         obj : obj is a class instance
         """
         obj_id = obj.__class__.__name__ + "." + obj.id
-        self.__objects[obj_id] = obj
+        FileStorage.__objects[obj_id] = obj
 
     def save(self):
         """
@@ -30,22 +30,27 @@ class FileStorage:
         # Create a dict to store as value, the dictionary representation
         # of the class instance (obj).
         json_object = {}
-        for key, obj in self.__objects.items():
+        for key, obj in FileStorage.__objects.items():
             json_object[key] = obj.to_dict()
 
-        with open(self.__file_path, 'w', encoding="utf-8") as f:
+        with open(FileStorage.__file_path, 'w', encoding="utf-8") as f:
             json.dump(json_object, f)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
         from models.base_model import BaseModel
+        from models.user import User
+        class_dict = {"BaseModel": BaseModel, "User": User}
         try:
-            with open(self.__file_path, 'r', encoding="utf-8") as f:
+            with open(FileStorage.__file_path, 'r', encoding="utf-8") as f:
                 json_object = json.load(f)
             # Loop through the json_object keys to extract the "__class__"
             # attribute and use the value to create instances
             for key, value, in json_object.items():
-                self.new(BaseModel(**value))
+                class_name = value['__class__']
+                if class_name in class_dict:
+                    model_name = class_dict.get(class_name)
+                    self.new(model_name(**value))
                 # class_name = json_object[key]['__class__']
                 # object_dict = json_object[key]
                 # self.__objects[key] = self.new(BaseModel(**object_dict))
