@@ -231,7 +231,7 @@ class HBNBCommand(cmd.Cmd):
                                                 new_dict[k])
                                         storage.all()[key].save()
                             except (IndexError, SyntaxError):
-                                print("omoo this your dictionary ehn")
+                                print(" Unknown Syntax")
                         else:
                             print('** no instance found **')
                 else:
