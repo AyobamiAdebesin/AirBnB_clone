@@ -26,7 +26,6 @@ class HBNBCommand(cmd.Cmd):
         Quit command to exit the program
         Type "quit" to exit
         '''
-        quit()
         return True
 
     def emptyline(self):
@@ -37,7 +36,6 @@ class HBNBCommand(cmd.Cmd):
         EOF command to exit the program
         Press "Ctrl + D"
         '''
-        quit()
         return True
 
     def do_create(self, arg):
