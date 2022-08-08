@@ -3,14 +3,15 @@
 import cmd
 
 from models.base_model import BaseModel
+from models.user import User
 from models.engine.file_storage import FileStorage
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    intro = 'Welcome to HBNB Console.    Type "help" or ? to list commands.\n'
+    intro = 'Welcome to HBNB Console            Type "help" or ? to list commands.\n'
     prompt = '(hbnb) '
-    class_dict = {"BaseModel": BaseModel}
+    class_dict = {"BaseModel": BaseModel, "User": User}
 
     def do_quit(self, arg):
         '''
@@ -39,10 +40,10 @@ class HBNBCommand(cmd.Cmd):
         '''
         if not arg:
             print("** class name missing **")
-        elif arg != "BaseModel":
+        elif arg not in HBNBCommand.class_dict:
             print("** class doesn't exists**")
-        elif arg == "BaseModel":
-            new_model = BaseModel()
+        else:
+            new_model = HBNBCommand.class_dict[arg]()
             storage.new(new_model)
             storage.save()
             print(new_model.id)
@@ -58,9 +59,9 @@ class HBNBCommand(cmd.Cmd):
         if len(split_args) == 0:
             print("** class name missing **")
         else:
-            if split_args[0] != "BaseModel":
+            if split_args[0] not in HBNBCommand.class_dict:
                 print("** class doesn't exist **")
-            elif split_args[0] == "BaseModel":
+            elif split_args[0] in HBNBCommand.class_dict:
                 try:
                     instance_key = f"{split_args[0]}.{split_args[1]}"
                     if instance_key in storage.all():
@@ -80,9 +81,9 @@ class HBNBCommand(cmd.Cmd):
         if len(split_args) == 0:
             print("** class name missing **")
         else:
-            if split_args[0] != "BaseModel":
+            if split_args[0] not in HBNBCommand.class_dict:
                 print("** class doesn't exist **")
-            elif split_args[0] == "BaseModel":
+            elif split_args[0] in HBNBCommand.class_dict:
                 try:
                     instance_key = f"{split_args[0]}.{split_args[1]}"
                     if instance_key in storage.all():
@@ -99,12 +100,20 @@ class HBNBCommand(cmd.Cmd):
         Usage: all / all <class name>
         ex: $ all BaseModel / all
         '''
-        if not arg or arg == "BaseModel":
+        if not arg:
             instance_list = []
             for key, value in storage.all().items():
                 instance_list.append(str(value))
             print(instance_list)
-        elif arg != "BaseModel":
+        elif arg in HBNBCommand.class_dict:
+            class_name = HBNBCommand.class_dict[arg]
+            instance_list_arg = []
+            for key, value in storage.all().items():
+                if getattr(value, '__class__') == class_name:
+                    instance_list_arg.append(str(value))
+            print(instance_list_arg)
+            
+        elif arg not in HBNBCommand.class_dict:
             print("** class doesn't exist**")
 
     def do_update(self, arg):
@@ -115,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         split_args = arg.split()
 
         try:
-            if split_args[0] != "BaseModel":
+            if split_args[0] not in HBNBCommand.class_dict:
                 print("** class doesn't exist **")
             else:
                 try:
