@@ -18,6 +18,9 @@ button {
     border: none;
     margin: auto 30px auto auto;
 }
+button:hover {
+    opacity: 0.9;
+}
 .locations {
     height: 100%;
     width: 25%;
@@ -33,6 +36,26 @@ button {
 	font-size: 14px;
 	margin: 7px 0 3px 40px;
 }
-button:hover {
-    opacity: 0.9;
+.popover {
+    background-color: #FAFAFA;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    list-style: none;
+    padding: 30px 40px 40px 30px;
+	margin: 15px -1px 0 -1px;
+    display: none;
+}
+.popover h2 {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.popover ul {
+    margin: 0px;
+    list-style: none;   
+}
+.locations:hover .popover {
+    display: list-item;
+}
+.amenities:hover .popover {
+    display: list-item;
 }
