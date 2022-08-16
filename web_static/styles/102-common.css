@@ -19,7 +19,7 @@
     border: 1px solid  #FF5A5F;
     border-radius: 4px;
 }
-.places .title h2 {
+.places h2 {
     flex-grow: 1;
     font-size: 30px;
     margin: 10px 0 30px 0;
@@ -56,40 +56,11 @@
 .user {
     margin: 20px 0px 5px 0px;
 }
-.places .amenities h2, .reviews h2 {
-    margin: 0;
-	padding: 0 0 12px 0;
-	font-size: 16px;
-	text-align: left;
-	border-bottom: 1px solid #DDDDDD;
-}
-.container .places .amenities,
-.container .places .reviews {
-	margin: 40px 0 0 0;
-	list-style-type: none;
-}
-.container .places .amenities ul,
-.container .places .reviews ul {
-	list-style-type: none;
-	padding: 0px;
-}
-.container .places .amenities li {
-	padding: 5px 0;
-}
-article .reviews li {
-    margin-bottom: 20px;
-}
-.container .places .amenities .fa-solid {
-	padding: 0 10px 0 0;
-}
 
-.container .places .reviews {
-	padding: 1px 0;
-}
+@media screen and (min-width: 1800px) {
 
-.container .places .reviews li h3 {
-	margin: 5px 0 0 0;
-}
-.container .places .reviews li p {
-	margin: 0;
+	div.container {
+		max-width: 80%;
+	}
+
 }
