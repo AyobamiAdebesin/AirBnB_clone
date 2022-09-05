@@ -19,8 +19,9 @@ class FileStorage:
         Add a new element; obj, to the self.__objects dictionary
         obj : obj is a class instance
         """
-        obj_id = obj.__class__.__name__ + "." + obj.id
-        FileStorage.__objects[obj_id] = obj
+        if obj:
+            obj_id = obj.__class__.__name__ + "." + obj.id
+            FileStorage.__objects[obj_id] = obj
 
     def save(self):
         """
