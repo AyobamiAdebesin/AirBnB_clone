@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+
 """ A base model for all objects of the project"""
 import uuid
-import cmd
 from datetime import datetime
 from models import storage
 
